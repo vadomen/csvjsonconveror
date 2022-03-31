@@ -1,5 +1,5 @@
 {
-  "name": "csvjsonconveror",
+  "name": "csvjsonconvertor",
   "version": "1.0.0",
   "description": "Csv to json and vice verse convertor",
   "main": "dist/app.js",

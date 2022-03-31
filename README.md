@@ -1,4 +1,4 @@
-# csvjsonconveror
+# csvjsonconvertor
 Csv to json and vice verse convertor
 
 ### Usage
