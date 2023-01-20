@@ -5,7 +5,7 @@ import events from 'events';
 import { set } from 'lodash';
 
 const options = process.argv.slice(2)
-const [mode, inputFile, outputFile, ] = options;
+const [mode, inputFile, outputFile] = options;
 
 const jsonToCsv = async()  => {
   if (!inputFile) return console.error('Provide input file');
@@ -28,8 +28,8 @@ const csv2Json = async () => {
       });
 
       rl.on('line', (line) => {
-        const [key, value] = line.split(',');
-        set(json, key, value);
+        const [key, ...value] = line.split(',');
+        set(json, key, value.join(',').replace(/\"/g, ""));
       });
 
       await events.once(rl, 'close');
@@ -48,6 +48,5 @@ switch (mode) {
     jsonToCsv();
     break;
   default:
-    console.error('specify mode: csv2json | json2csv');
+    console.error('Specify mode: csv2json | json2csv');
 }
-
